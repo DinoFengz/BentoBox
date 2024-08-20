@@ -24,6 +24,10 @@ public class RemoveMobsListener extends FlagListener {
                 || e.getCause().equals(TeleportCause.SPECTATE)) {
             return;
         }
+        if(e.getTo() == null)
+            return;
+
+        
         // Return if this is a small teleport
         if (e.getTo().getWorld().equals(e.getPlayer().getWorld()) &&
                 e.getTo().distanceSquared(e.getPlayer().getLocation()) < getPlugin().getSettings().getClearRadius() * getPlugin().getSettings().getClearRadius()) {
